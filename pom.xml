@@ -15,7 +15,6 @@
     <description>cj</description>
     <packaging>pom</packaging>
     <modules>
-        <module>server</module>
         <module>storage</module>
     </modules>
     <properties>
