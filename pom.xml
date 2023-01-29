@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.kaiyu</groupId>
+  <artifactId>cj_procedure</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>cj_procedure</name>
+  <description>project for Spring Boot</description>
+  <packaging>pom</packaging>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.8</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <modules>
+    <module>server</module>
+  </modules>
+  <properties>
+    <java.version>1.8</java.version>
+    <spring.version>2.7.8</spring.version>
+    <lombok.version>1.16.10</lombok.version>
+    <druid.version>1.2.15</druid.version>
+    <postgresql.version>42.2.2</postgresql.version>
+    <nd4j.version>1.0.0-M1.1</nd4j.version>
+    <python.version>3.8.10</python.version>
+    <springbootjdbc.version>2.5.3</springbootjdbc.version>
+    <orai18n.version>12.1.0.2.0</orai18n.version>
+  </properties>
+
+  <!-- 统一配置项目依赖项 -->
+  <dependencyManagement>
+    <dependencies>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-logging</artifactId>
+        <version>${spring.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-to-slf4j</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!--oracle 驱动-->
+      <dependency>
+        <groupId>com.oracle.ojdbc</groupId>
+        <artifactId>ojdbc8</artifactId>
+        <version>${oracle.driver.version}</version>
+      </dependency>
+
+      <!--postgresql 驱动-->
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${postgresql.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
+        <version>${springbootjdbc.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>cn.easyproject</groupId>
+        <artifactId>orai18n</artifactId>
+        <version>${orai18n.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+
+      <!-- 多维数组计算 -->
+      <dependency>
+        <groupId>org.nd4j</groupId>
+        <artifactId>nd4j-native-platform</artifactId>
+        <version>${nd4j.version}</version>
+      </dependency>
+
+      <!-- python -->
+      <dependency>
+        <groupId>org.python</groupId>
+        <artifactId>jython-standalone</artifactId>
+        <version>${python.version}</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
